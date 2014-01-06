@@ -7,6 +7,13 @@ describe User do
   					 password: "foobar", password_confirmation: "foobar")
   end
 
+  visit signup_path
+	fill_in "Name",         with: "Example User"
+	fill_in "Email",        with: "user@example.com"
+	fill_in "Password",     with: "foobar"
+	fill_in "Confirmation", with: "foobar"
+	click_button "Create my account"
+
   subject { @user }
 
   it { should respond_to(:name) }
